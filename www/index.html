@@ -32,7 +32,7 @@
 				title = $(this).find("title").text();
 				id = $(this).find("ID").text();
 				//alert(id);
-				appitem += '<li class="ui-li ui-li-static ui-body-b"><a href="details.html?id='+ id +'" data-ajax="false">'+ title + '</a></li>';
+				appitem += '<a href="details.html?id='+ id +'" data-ajax="false"><li class="ui-li ui-li-static ui-body-b">'+ title + '</li></a>';
 				
 				//$('#list').listview('refresh');
             });
