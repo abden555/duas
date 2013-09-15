@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <title>jQuery Mobile Web App</title>
-
+<link rel="stylesheet" href="css/my-custom-theme.css" />
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.1.min.css" />
+<link rel="stylesheet" href="css/my.css" />
 <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
-
-<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
+<script src="js/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     var xml;
     $(document).ready(function(){
-		document.addEventListener("deviceready", startup, false);		
+		
+		
 		
         $.ajax({
             type: "GET",
@@ -18,12 +20,10 @@
             dataType: "xml",
             success: xmlParser
         	});
-    	});
+    });
         //loading XML file and parsing to .main div.
         function xmlParser(data) {
             xml = data;
-
-            $('#load').fadeOut();
 			var title = '';
 			var id = '';
 			var appitem = ''
@@ -32,58 +32,41 @@
 				title = $(this).find("title").text();
 				id = $(this).find("ID").text();
 				//alert(id);
-				appitem += '<a href="details.html?id='+ id +'" data-ajax="false"><li class="ui-li ui-li-static ui-body-b">'+ title + '</li></a>';
+				appitem += '<li data-theme="c"><a href="details.html?id='+ id +'" data-ajax="false">'+ title + '</a></li>';
 				
 				//$('#list').listview('refresh');
             });
 			//alert(appitem);
-			//$("ul#list").append(appitem); 
+			$("ul#list").append(appitem); 
         }
-		
-			function startup() {
-			console.log("Business time...");
-			//alert('hey');
-			menuDiv = document.querySelector("#menu");
-			 
-			document.addEventListener("menubutton", doMenu, false);
-			}
-			 
-			function doMenu() {
-			console.log("The menu was clicked...");
-			if(menuOpen) {
-			console.log("close the menu");
-			menuDiv.style.display="none";
-			menuOpen = false;
-			} else {
-			console.log("open the menu");
-			menuDiv.style.display="block";
-			menuOpen = true;
-			}
-			 
-			}
+
 </script>
-	<style>
-div#menu {
-width: 30%;
-background-color: yellow;
-position:absolute;
-bottom: 0;
-left: 35%;
-display:none;
-}
-</style>
 </head> 
 <body> 
 
-
-    <!-- /contentprimary --> 
-    <div id="menu">
-        <a href="">Option One</a><br/>
-        <a href="">Option Two</a>
+<div data-role="page">
+  <div data-role="header" data-theme="a">
+    <h1>Dua's List</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content">
+    <div class="content-primary">
+      <ul id="list" data-role="listview" data-divider-theme="c" data-inset="true" data-filter="true" data-icon="false">
+      
+      </ul>
     </div>
-
-  
+    <!-- /contentprimary --> 
+  </div>
   <!-- /content -->
+  <div data-role="footer" data-theme="a">
+    <div data-role="navbar">
+      <p align='center'>Remember me in your duas</p>
+    </div>
+    <!-- /navbar --> 
+  </div>
+  <!-- /footer --> 
+</div>
+<!-- /page -->
 
 </body>
 </html>
