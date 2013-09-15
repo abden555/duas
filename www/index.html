@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>jQuery Mobile Web App</title>
-<link href="js/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+
 <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
-<script src="js/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
 <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
 <script type="text/javascript">
     var xml;
@@ -37,7 +37,7 @@
 				//$('#list').listview('refresh');
             });
 			//alert(appitem);
-			$("ul#list").append(appitem); 
+			//$("ul#list").append(appitem); 
         }
 		
 			function startup() {
@@ -75,34 +75,15 @@ display:none;
 </head> 
 <body> 
 
-<div data-role="page">
-  <div data-role="header" data-theme="a">
-    <h1>Directory for all kinds of Dua</h1>
-  </div>
-  <!-- /header -->
-  <div data-role="content">
-    <div class="content-primary">
-      <ul id="list" data-role="listview" data-theme="b" data-filter="true">
-	      <li id="load">Loading Data...</li>
-      </ul>
-    </div>
+
     <!-- /contentprimary --> 
     <div id="menu">
         <a href="">Option One</a><br/>
         <a href="">Option Two</a>
     </div>
-  </div>
+
   
   <!-- /content -->
-  <div data-role="footer" data-theme="a">
-    <div data-role="navbar">
-      <p align='center'>Remember me in your duas</p>
-    </div>
-    <!-- /navbar --> 
-  </div>
-  <!-- /footer --> 
-</div>
-<!-- /page -->
 
 </body>
 </html>
